@@ -78,8 +78,7 @@ body.appendChild(timerArea);
 timerArea.appendChild(timerTitle);
 timerArea.appendChild(timerCount);
 
-// var timer;
-// var timeLeft;
+timerTitle.setAttribute('display', 'hidden');
 
 // ⭐NOTES⭐ The startGame function is called when the start button is clicked
 function startGame() {
