@@ -4,26 +4,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Game</title>
+  <title>Code Quiz</title>
   <!-- Linked styling CSS document -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+
   <!-- Created container div for the timer -->
-  <div class="timer-container hidden"></div>
-<!-- TODO → Add any needed element(s) with appropriate id/class info for timer container -->
-  <!-- Created container div for the initial content displayed -->
-  <div class="intro-container"></div>
-<!-- TODO → Add any needed element(s) with appropriate id/class info for intro container -->
-  <!-- Created container div for the start button -->
-  <div class="start-btn"></div>
-<!-- TODO → Add any needed element(s) with appropriate id/class info for start button container -->
-  <!-- Created container div for the  -->
-  <div class="question-container"></div>
-<!-- TODO → Add any needed element(s) with appropriate id/class info for question container -->
+  <div id="timer-container" class="timer-container hide">
+    <h2 class="timer">Countdown Timer</h2>
+  </div>
+
+  <br>
+
+  <!-- Created container div for the initial page content -->
+  <div id="intro-container" class="intro-container">
+    <h1 class="intro-title">Code Quiz</h1>
+    <p class="intro-text">The game will begin when you click the start button below. You have 60 seconds to answer all of the questions. Each incorrect answer will result in 15 seconds being removed from your remaining time. Try to get through all of the questions before the timer reaches zero. Good luck!</p>
+    <button id="start-btn" class="start-btn btn">START</button>
+  </div>
+
+  <br>
+
+  <!-- Created container div for the questions display -->
+  <div id="questions-container" class="questions-container hide">
+    <h3 id="question" class="question">Question</h3>
+    <ul id="choices" class="choices">
+      <li>
+        <button id="choice-1" class="choices-btn btn">Choice1</button>
+      </li>
+      <li>
+        <button id="choice-2" class="choices-btn btn">Choice2</button>
+      </li>
+      <li>
+        <button id="choice-3" class="choices-btn btn">Choice3</button>
+      </li>
+      <li>
+        <button id="choice-4" class="choices-btn btn">Choice4</button>
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
+  <!-- Created container div for the results display -->
+  <div id="results-container" class="results-container hide">
+    <h2 id="results-msg" class="results-msg">Results Message</h2>
+    <p id="results-text" class="results-text">Results information text here...</p>
+    <button id="restart-btn" class="restart-btn btn">RESTART QUIZ</button>
+    <button id="highscore-btn" class="highscore-btn btn">VIEW HIGH SCORES</button>
+  </div>
+
   <!-- Linked questions reference list JS document -->
   <script src="./assets/javascript/questions.js"></script>
   <!-- Linked functionality JS document  -->
   <script src="./assets/javascript/script.js"></script>
+
 </body>
 </html>
