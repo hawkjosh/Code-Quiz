@@ -12,7 +12,7 @@
 
   <!-- Created container div for the timer -->
   <div id="timer-container" class="timer-container hide">
-    <h2 class="timer">Countdown Timer</h2>
+    <h2 id="timer-display" class="timer-display"></h2>
   </div>
 
   <br>
@@ -53,10 +53,18 @@
     <p id="results-text" class="results-text">Results information text here...</p>
     <button id="restart-btn" class="restart-btn btn">RESTART QUIZ</button>
     <button id="highscore-btn" class="highscore-btn btn">VIEW HIGH SCORES</button>
+    <button id="quit-btn" class="quit-btn btn">QUIT</button>
   </div>
 
-  <!-- Linked questions reference list JS document -->
-  <script src="./assets/javascript/questions.js"></script>
+  <br>
+
+  <!-- Created container div for the high scores display -->
+  <div id="highscore-container" class="highscore-container hide">
+    <h2 id="highscore-title" class="highscore-title">High Scores</h2>
+    <div id="highscore-list" class="highscore-list"></div>
+    <button id="quit-btn" class="quit-btn btn">QUIT</button>
+  </div>
+
   <!-- Linked functionality JS document  -->
   <script src="./assets/javascript/script.js"></script>
 

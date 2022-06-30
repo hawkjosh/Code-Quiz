@@ -13,7 +13,7 @@ body {
   justify-content: center;
 }
 
-.timer {
+.timer-display {
   width: auto;
   text-align: right;
   color: red;
@@ -41,7 +41,8 @@ body {
 }
 
 .restart-btn,
-.highscore-btn {
+.highscore-btn,
+.quit-btn {
   font-size: 1.25rem;
   border-width: 2px;
 }
@@ -124,6 +125,25 @@ body {
   text-align: center;
 }
 
-/* .hide {
+.highscore-container {
+  background-color: darkgray;
+  border: solid black;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  width: 85%;
+  padding: 10px;
+}
+
+.highscore-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hide {
   display: none;
-} */
+}
