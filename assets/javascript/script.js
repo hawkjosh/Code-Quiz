@@ -67,6 +67,7 @@ const quitBtn = document.getElementById('quit-btn');
 // Global scope variables
 let timeLeft = 60;
 let currIndex = 0;
+let beginTime;
 
 // Event handlers
 startBtn.addEventListener('click', startQuiz);
@@ -79,7 +80,7 @@ quitBtn.addEventListener('click', resetAll);
 // Function to start the quiz
 function startQuiz() {
   resetAll();
-  startTimer();
+  startCount();
   startQuestion();
 }
 
@@ -93,11 +94,13 @@ function startQuestion() {
   for (i = 0; i < questionsInfo[currIndex].length; i++) {
     answerChoices[i].textContent = questionsInfo[currIndex][i + 1];
   }
-  return;
 }
 
 // Function to cycle thru index and insert next questions content, then show the results element after last question is answered.
+// TODO → I believe this is where I will need to add the time decrement piece. Not at the top where I currently have it, but somewhere in this block with conditionals dictating whether answer is correct or not.
 function nextQuestion() {
+  // PIN → 'timeLeft-=10' below decreases the countdown timer by 10 seconds when an answer choice is clicked.
+  timeLeft-=10;
   currIndex++;
   for (i = 0; i < questionsInfo.length; i++) {
     if (currIndex < questionsInfo.length) {
@@ -106,12 +109,24 @@ function nextQuestion() {
       answerChoices[i].textContent = questionsInfo[currIndex][i + 1];
     }
     } else {
+      clearInterval(beginTime);
       questionElement.classList.add('hide');
       timerElement.classList.add('hide');
       resultsElement.classList.remove('hide');
-      resultsMsg.textContent = '🙂 CONGRATS, YOU FINISHED';
-      resultsText.classList.add('hide');
+      resultsMsg.textContent = 'CONGRATS, YOU FINISHED 🙂';
+      resultsText.textContent = 'Your score is ' + timeLeft + '!';
     }
+    // TODO → I believe this is where I will add the user input option for high scores. Will need to incorporate it into the high scores element as well.
+  }
+}
+
+// PIN → I believe this is how I will be able to include user initials input. Need to figure out how to incorprate into the bottom of the code block above, as well as how to write onto the high scores page.
+function highscoresPrompt() {
+  let userInitials = prompt('Enter your initials for the high scores list!');
+  if (userInitials === '') {
+    prompt('No need to be modest, you deserve to be on the high scores list! Please enter your initials.');
+  } else {
+    return;
   }
 }
 
@@ -137,20 +152,24 @@ function resetAll() {
   highscoresElement.classList.add('hide');
   timeLeft = 60;
   currIndex = 0;
-  }
+}
+
+// Function to allow global interaction with setInterval
+function startCount() {
+  beginTime = setInterval(startTimer, 1000);
+}
 
 // Function to start the timer element, then show results element when time expires
 function startTimer() {
-  let beginTime = setInterval(function() {
-    timeLeft--;
-    timer.textContent = 'Time Remaining: ' + timeLeft + ' seconds';
+  timeLeft--;
+  timer.textContent = 'Time Remaining: ' + timeLeft + ' seconds';
     if (timeLeft === 0) {
       clearInterval(beginTime);
       timer.textContent = 'Times up!';
       questionElement.classList.add('hide');
+      highscoresBtn.classList.add('hide');
       resultsElement.classList.remove('hide');
-      resultsMsg.textContent = '☹️ YOU DID NOT FINISH';
+      resultsMsg.textContent = 'SORRY, YOU DID NOT FINISH ☹️';
       resultsText.classList.add('hide');
       }
-  }, 100);
 }

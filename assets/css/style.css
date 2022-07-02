@@ -122,7 +122,8 @@ body {
 }
 
 .results-text {
-  font-size: 1.25rem;
+  color: red;
+  font-size: 1.75rem;
   margin-bottom: 30px;
   text-align: center;
 }
