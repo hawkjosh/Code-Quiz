@@ -13,15 +13,6 @@ body {
   justify-content: center;
 }
 
-.timer-display {
-  width: auto;
-  text-align: right;
-  color: red;
-  font-size: 1.25rem;
-  padding: 5px;
-  margin: 5px 20px 20px 0;
-}
-
 .btn {
   background: lightgray;
   border: solid black;
@@ -35,14 +26,15 @@ body {
   border-width: 2px;
 }
 
-.choices-btn {
+.answer-btn {
   font-size: 1.15rem;
   border-width: 1.5px;
+  text-align: left;
 }
 
 .restart-btn,
-.highscore-btn,
-.quit-btn {
+.highscores-btn,
+.back-btn {
   font-size: 1.25rem;
   border-width: 2px;
 }
@@ -54,7 +46,16 @@ body {
   cursor: pointer;
 }
 
-.intro-container {
+.timer-element {
+  width: auto;
+  text-align: right;
+  color: red;
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 5px 20px 20px 0;
+}
+
+.start-element {
   background-color: darkgray;
   border: solid black;
   align-self: center;
@@ -67,19 +68,19 @@ body {
   padding: 10px;
 }
 
-.intro-title {
+.title {
   font-size: 3rem;
   margin-bottom: 15px;
 }
 
-.intro-text {
+.instructions {
   font-size: 1.1rem;
   margin-bottom: 25px;
   text-align: left;
   width: 90%;
 }
 
-.questions-container {
+.question-element {
   background-color: darkgray;
   border: solid black;
   align-self: center;
@@ -91,16 +92,17 @@ body {
   padding: 10px 0 10px 20px;
 }
 
-.question {
-  font-size: 2rem;
+.question-text {
+  font-size: 1.75rem;
   margin-bottom: 15px;
 }
 
-.choices {
-  list-style-type: none;
+.answer-choices {
+  display: flex;
+  flex-direction: column;
 }
 
-.results-container {
+.results-element {
   background-color: darkgray;
   border: solid black;
   align-self: center;
@@ -125,7 +127,7 @@ body {
   text-align: center;
 }
 
-.highscore-container {
+.highscores-element {
   background-color: darkgray;
   border: solid black;
   align-self: center;
@@ -136,11 +138,19 @@ body {
   height: fit-content;
   width: 85%;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
-.highscore-title {
+.highscores-title {
   font-size: 3rem;
   margin-bottom: 15px;
+  text-align: center;
+}
+
+.highscores-list {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
   text-align: center;
 }
 

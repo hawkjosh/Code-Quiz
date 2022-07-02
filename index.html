@@ -5,68 +5,64 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Quiz</title>
-  <!-- Linked styling CSS document -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- Linked external CSS document -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
-  <!-- Created container div for the timer -->
-  <div id="timer-container" class="timer-container hide">
-    <h2 id="timer-display" class="timer-display"></h2>
+  <!-- Container div for the timer element -->
+  <div id="timer-element" class="timer-element hide">
+    <h2 id="timer" class="timer">Time Remaining: 60 seconds</h2>
   </div>
 
   <br>
 
-  <!-- Created container div for the initial page content -->
-  <div id="intro-container" class="intro-container">
-    <h1 class="intro-title">Code Quiz</h1>
-    <p class="intro-text">The game will begin when you click the start button below. You have 60 seconds to answer all of the questions. Each incorrect answer will result in 15 seconds being removed from your remaining time. Try to get through all of the questions before the timer reaches zero. Good luck!</p>
+  <!-- Container div for the start element -->
+  <div id="start-element" class="start-element">
+    <h1 id="title" class="title">Code Quiz</h1>
+    <p id="instructions" class="instructions">Instructions text here.....</p>
     <button id="start-btn" class="start-btn btn">START</button>
   </div>
 
   <br>
 
-  <!-- Created container div for the questions display -->
-  <div id="questions-container" class="questions-container hide">
-    <h3 id="question" class="question">Question</h3>
-    <ul id="choices" class="choices">
-      <li>
-        <button id="choice-1" class="choices-btn btn">Choice1</button>
-      </li>
-      <li>
-        <button id="choice-2" class="choices-btn btn">Choice2</button>
-      </li>
-      <li>
-        <button id="choice-3" class="choices-btn btn">Choice3</button>
-      </li>
-      <li>
-        <button id="choice-4" class="choices-btn btn">Choice4</button>
-      </li>
+  <!-- Container div for the question element -->
+  <div id="question-element" class="question-element hide">
+    <h2 id="question-text" class="question-text">Question text here.....</h2>
+    <div id="answer-choices" class="answer-choices">
+      <button class="answer-btn btn">A: Answer text here.....</button>
+      <button class="answer-btn btn">B: Answer text here.....</button>
+      <button class="answer-btn btn">C: Answer text here.....</button>
+      <button class="answer-btn btn">D: Answer text here.....</button>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Container div for the results element -->
+  <div id="results-element" class="results-element hide">
+    <h2 id="results-msg" class="results-msg">Results message here.....</h2>
+    <p id="results-text" class="results-text">Results information text here.....</p>
+    <button id="restart-btn" class="restart-btn btn">RESTART</button>
+    <button id="highscores-btn" class="highscores-btn btn">HIGH SCORES</button>
+    <button id="quit-btn" class="quit-btn btn">QUIT</button>
+  </div>
+
+  <br>
+
+  <!-- Container div for the high scores element -->
+  <div id="highscores-element" class="highscores-element hide">
+    <h2 id="highscores-title" class="highscores-title">High Scores</h2>
+    <ul id="highscores-list" class="highscores-list">
+      <li>High scores info here.....</li>
+      <li>High scores info here.....</li>
+      <li>High scores info here.....</li>
     </ul>
-  </div>
-
-  <br>
-
-  <!-- Created container div for the results display -->
-  <div id="results-container" class="results-container hide">
-    <h2 id="results-msg" class="results-msg">Results Message</h2>
-    <p id="results-text" class="results-text">Results information text here...</p>
-    <button id="restart-btn" class="restart-btn btn">RESTART QUIZ</button>
-    <button id="highscore-btn" class="highscore-btn btn">VIEW HIGH SCORES</button>
+    <button id="back-btn" class="back-btn btn">BACK</button>
     <button id="quit-btn" class="quit-btn btn">QUIT</button>
   </div>
 
-  <br>
-
-  <!-- Created container div for the high scores display -->
-  <div id="highscore-container" class="highscore-container hide">
-    <h2 id="highscore-title" class="highscore-title">High Scores</h2>
-    <div id="highscore-list" class="highscore-list"></div>
-    <button id="quit-btn" class="quit-btn btn">QUIT</button>
-  </div>
-
-  <!-- Linked functionality JS document  -->
+  <!-- Linked external javascript document -->
   <script src="./assets/javascript/script.js"></script>
-
 </body>
 </html>
