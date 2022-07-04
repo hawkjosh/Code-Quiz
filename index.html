@@ -10,39 +10,39 @@
 </head>
 <body>
 
-  <!-- Container div for the timer element -->
-  <div id="timer-element" class="timer-element hide">
-    <h2 id="timer" class="timer">Time Remaining: 60 seconds</h2>
+  <!-- Container div for the timer display area -->
+  <div id="timer-display" class="timer-display hide">
+    <div id="timer" class="timer"></div>
   </div>
 
   <br>
 
-  <!-- Container div for the start element -->
-  <div id="start-element" class="start-element">
-    <h1 id="title" class="title">Code Quiz</h1>
-    <p id="instructions" class="instructions">Instructions: The game will begin when you click the start button below. You have 60 seconds to answer all of the questions. Each incorrect answer will result in 10 seconds being removed from your remaining time. Your score is simply your remaining time at the end. Try to get through all of the questions before time expires to make the high score list. Good luck!</p>
+  <!-- Container div for the initial display area -->
+  <div id="initial-display" class="initial-display">
+    <div id="initial-title" class="initial-title">Code Quiz</div>
+    <div id="initial-text" class="initial-text">Instructions: The game will begin when you click the start button below. You have 60 seconds to answer all of the questions. Each incorrect answer will result in 12 seconds being removed from your remaining time. Your score is simply your remaining time at the end. In order to finish and make the high scores list, you must have some time remaining after your last answer choice is selected. Good luck!</div>
     <button id="start-btn" class="start-btn btn">START</button>
   </div>
 
   <br>
 
-  <!-- Container div for the question element -->
-  <div id="question-element" class="question-element hide">
-    <h2 id="question-text" class="question-text">Question text here.....</h2>
-    <div id="answer-choices" class="answer-choices">
-      <button class="answer-btn btn">A: Answer text here.....</button>
-      <button class="answer-btn btn">B: Answer text here.....</button>
-      <button class="answer-btn btn">C: Answer text here.....</button>
-      <button class="answer-btn btn">D: Answer text here.....</button>
+  <!-- Container div for the question display area -->
+  <div id="question-display" class="question-display hide">
+    <div id="question" class="question"></div>
+    <div id="answers-display" class="answers-display">
+      <button id="choice-a" class="choices-btn btn" onclick="checkAnswer('A')"></button>
+      <button id="choice-b" class="choices-btn btn" onclick="checkAnswer('B')"></button>
+      <button id="choice-c" class="choices-btn btn" onclick="checkAnswer('C')"></button>
+      <button id="choice-d" class="choices-btn btn" onclick="checkAnswer('D')"></button>
     </div>
   </div>
 
   <br>
 
-  <!-- Container div for the results element -->
-  <div id="results-element" class="results-element hide">
-    <h2 id="results-msg" class="results-msg">Results message here.....</h2>
-    <p id="results-text" class="results-text">Results information text here.....</p>
+  <!-- Container div for the results display area -->
+  <div id="results-display" class="results-display hide">
+    <div id="results-title" class="results-title"></div>
+    <div id="results-text" class="results-text"></div>
     <button id="restart-btn" class="restart-btn btn">RESTART</button>
     <button id="highscores-btn" class="highscores-btn btn">HIGH SCORES</button>
     <button id="quit-btn" class="quit-btn btn">QUIT</button>
@@ -50,14 +50,10 @@
 
   <br>
 
-  <!-- Container div for the high scores element -->
-  <div id="highscores-element" class="highscores-element hide">
-    <h2 id="highscores-title" class="highscores-title">High Scores</h2>
-    <ul id="highscores-list" class="highscores-list">
-      <li>High scores info here.....</li>
-      <li></li>
-      <li></li>
-    </ul>
+  <!-- Container div for the high scores display area -->
+  <div id="highscores-display" class="highscores-display hide">
+    <div id="highscores-title" class="highscores-title">High Scores</div>
+    <div id="highscores-text" class="highscores-text"></div>
     <button id="back-btn" class="back-btn btn">BACK</button>
     <button id="quit-btn" class="quit-btn btn">QUIT</button>
   </div>
