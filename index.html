@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Quiz</title>
-  <!-- Linked external CSS document -->
+  <!-- Link to external CSS document -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -20,7 +20,9 @@
   <!-- Container div for the initial display area -->
   <div id="initial-display" class="initial-display">
     <div id="initial-title" class="initial-title">Code Quiz</div>
-    <div id="initial-text" class="initial-text">Instructions: The game will begin when you click the start button below. You have 60 seconds to answer all of the questions. Each incorrect answer will result in 12 seconds being removed from your remaining time. Your score is simply your remaining time at the end. In order to finish and make the high scores list, you must have some time remaining after your last answer choice is selected. Good luck!</div>
+    <div id="initial-text" class="initial-text">
+      Instructions: The game will begin when you click the start button below. You have 60 seconds to answer all five of the questions. Each incorrect answer will result in 12 seconds being removed from your total remaining time. Your score is simply your remaining time at the end. In order to finish and make the high scores list, you must have some time remaining after your last answer choice is selected. Good luck!
+    </div>
     <button id="start-btn" class="start-btn btn">START</button>
   </div>
 
@@ -43,7 +45,6 @@
   <div id="results-display" class="results-display hide">
     <div id="results-title" class="results-title"></div>
     <div id="results-text" class="results-text"></div>
-    <button id="restart-btn" class="restart-btn btn">RESTART</button>
     <button id="highscores-btn" class="highscores-btn btn">HIGH SCORES</button>
     <button id="quit-btn" class="quit-btn btn">QUIT</button>
   </div>
@@ -55,10 +56,9 @@
     <div id="highscores-title" class="highscores-title">High Scores</div>
     <div id="highscores-text" class="highscores-text"></div>
     <button id="back-btn" class="back-btn btn">BACK</button>
-    <button id="quit-btn" class="quit-btn btn">QUIT</button>
   </div>
 
-  <!-- Linked external javascript document -->
+  <!-- Link to external javascript document -->
   <script src="./assets/javascript/script.js"></script>
 </body>
 </html>

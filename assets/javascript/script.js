@@ -53,8 +53,6 @@ const highscoresDisplay = document.getElementById('highscores-display');
 // NOTES → DOM targets → buttons and content
 const timer = document.getElementById('timer');
 
-// const initialTitle = document.getElementById('initial-title');
-// const initialText = document.getElementById('initial-text');
 const startBtn = document.getElementById('start-btn');
 
 const question = document.getElementById('question');
@@ -70,7 +68,6 @@ const restartBtn = document.getElementById('restart-btn');
 const highscoresBtn = document.getElementById('highscores-btn');
 const quitBtn = document.getElementById('quit-btn');
 
-// const highscoresTitle = document.getElementById('highscores-title');
 const highscoresText = document.getElementById('highscores-text');
 const backBtn = document.getElementById('back-btn');
 
@@ -79,12 +76,12 @@ let timeLeft = 60;
 let currIndex = 0;
 let lastIndex = questionsInfo.length -1;
 let beginTime;
+let count = 0;
 
 // NOTES → Event handlers
 startBtn.addEventListener('click', startQuiz);
 answerClick.addEventListener('click', nextQuestion);
-restartBtn.addEventListener('click', startQuiz);
-highscoresBtn.addEventListener('click', highscoresView);
+highscoresBtn.addEventListener('click', highscoresPrompt);
 backBtn.addEventListener('click', backToResults);
 quitBtn.addEventListener('click', resetAll);
 
@@ -92,7 +89,6 @@ quitBtn.addEventListener('click', resetAll);
 function startQuiz() {
   startQuestion();
   startCount();
-  // startQuestion();
 }
 
 // NOTES → Function to allow global interaction with setInterval
@@ -109,6 +105,16 @@ function startCount() {
 function startTimer() {
   timeLeft--;
   timer.innerHTML = 'Time Remaining: ' + timeLeft + ' seconds';
+  if (timeLeft <= 0) {
+    clearInterval(beginTime);
+    timer.setAttribute('style', 'color: white; background: red');
+    timer.innerHTML = 'TIMES UP!';
+    questionDisplay.classList.add('hide');
+    resultsDisplay.classList.remove('hide');
+    resultsTitle.innerHTML = 'SORRY, YOU DID NOT FINISH ☹️';
+    resultsText.textContent = 'You got ' + count + ' out of 5 correct with ' + timeLeft + ' seconds left.';
+    highscoresBtn.classList.add('hide');
+  }
 }
 
 // NOTES → Function to set questions content for the starting index
@@ -121,7 +127,6 @@ function startQuestion() {
   choiceD.innerHTML = q.choiceD;
 }
 
-// TODO → Score is not showing up in resultsText after restart from did not finish...
 // NOTES → Function to set questions content for the next index
 function nextQuestion() {
   if (currIndex < lastIndex && timeLeft > 12) {
@@ -134,11 +139,12 @@ function nextQuestion() {
     choiceD.innerHTML = q.choiceD;
   } else if (currIndex < lastIndex && timeLeft <= 12) {
       clearInterval(beginTime);
+      timer.setAttribute('style', 'color: white; background: red');
       timer.innerHTML = 'TIMES UP!';
       questionDisplay.classList.add('hide');
       resultsDisplay.classList.remove('hide');
       resultsTitle.innerHTML = 'SORRY, YOU DID NOT FINISH ☹️';
-      resultsText.classList.add('hide');
+      resultsText.textContent = 'You got ' + count + ' out of 5 correct before the timer expired.'
       highscoresBtn.classList.add('hide');
     } else {
         clearInterval(beginTime);
@@ -146,11 +152,11 @@ function nextQuestion() {
         timerDisplay.classList.add('hide');
         resultsDisplay.classList.remove('hide');
         resultsTitle.innerHTML = 'CONGRATS, YOU FINISHED 🙂';
-        resultsText.textContent = 'Your score is ' + timeLeft + '!';
+        resultsText.textContent = 'You got ' + count + ' out of 5 correct with ' + timeLeft + ' seconds left.';
       }
 }
 
-// TODO → Figure out how to get the timer background color to change back to normal after momentary change from choice
+// TODO → Figure out how to get the timer background color to change back to normal after momentary change from selected answer choice
 // NOTES → Function to check correct answer, decrements timeLeft 10 seconds if wrong, changes timer background based on choice
 function checkAnswer(ans) {
   if (questionsInfo[currIndex].correct !== ans) {
@@ -158,20 +164,29 @@ function checkAnswer(ans) {
     timer.setAttribute('style', 'color: white; background: red; transition: 1s');
   } else {
       timer.setAttribute('style', 'color: white; background: green; border-color: green; transition: 1s');
+      count++;
   }
 }
 
-// TODO → Integrate high scores prompt into results screen if score is registered.
-// function highscoresPrompt() {
-//   let userInitials = prompt('Enter your initials for the high scores list!');
-//   if (userInitials === '') {
-//     prompt('No need to be modest, you deserve to be on the high scores list! Please enter your initials.');
-//   } else {
-//       return;
-//   }
-// }
+// TODO → Figure out how to sort the high scores list by timeLeft value
+// NOTES → Function to let user enter initials when high scores button is clicked, store userInitials and timeLeft locally, then show those valuse on the high scores display
+function highscoresPrompt() {
+  let userInitials = prompt('Enter your initials for the high scores list!');
+  if (userInitials === '') {
+    prompt('No need to be modest, you deserve to be on the high scores list! Please enter your initials.');
+  } else {
+    highscoresView();
+    let userInfo = userInitials + ' → ' + timeLeft;
+    localStorage.setItem('userInfo', userInfo);
+    let listEl = document.createElement('ul');
+    let li1 = document.createElement('li');
+    highscoresText.appendChild(listEl);
+    listEl.appendChild(li1);
+    li1.innerHTML = localStorage.getItem('userInfo');
+  }
+}
 
-// NOTES → Function to show high scores display
+// NOTES → Function to show high scores display after entering initials into highscoresPrompt
 function highscoresView() {
   resultsDisplay.classList.add('hide');
   highscoresDisplay.classList.remove('hide');
@@ -180,6 +195,7 @@ function highscoresView() {
 // NOTES → Function to return to results display from high scores display
 function backToResults() {
   resultsDisplay.classList.remove('hide');
+  highscoresBtn.classList.add('hide');
   highscoresDisplay.classList.add('hide');
 }
 
@@ -187,10 +203,15 @@ function backToResults() {
 function resetAll() {
   timerDisplay.classList.add('hide');
   timer.innerHTML = 'Time Remaining: 60 seconds';
+  timer.setAttribute('style', 'color: red; background: yellow; border-color: red');
   initialDisplay.classList.remove('hide');
   questionDisplay.classList.add('hide');
   resultsDisplay.classList.add('hide');
+  resultsTitle.textContent = '';
+  resultsText.textContent = '';
+  highscoresBtn.classList.remove('hide');
   highscoresDisplay.classList.add('hide');
   timeLeft = 60;
   currIndex = 0;
+  count = 0;
 }
