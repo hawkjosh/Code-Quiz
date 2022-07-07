@@ -6,8 +6,8 @@ In this challenge, I created a timed multiple-choice quiz on JavaScript fundamen
 
 ## Screenshot
 
-<!-- ![Screenshot of the deployed web application](./assets/images/XXXXX.png) -->
+![Screenshot of the deployed web application](./assets/images/module4_webpage_screenshot.png)
 
 ## Link
 
-<!-- To view the deployed website, [CLICK HERE](https://hawkjosh.github.io/XXXXX/). -->
+To view the deployed website, [CLICK HERE](https://hawkjosh.github.io/module4-code-quiz-challenge/).
