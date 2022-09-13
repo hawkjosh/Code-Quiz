@@ -1,4 +1,4 @@
-# module4-code-quiz-challenge
+# Code-Quiz
 
 ## Description
 
@@ -10,4 +10,4 @@ In this challenge, I created a timed multiple-choice quiz on JavaScript fundamen
 
 ## Link
 
-To view the deployed website, [CLICK HERE](https://hawkjosh.github.io/module4-code-quiz-challenge/).
+To view the deployed website, [CLICK HERE](https://hawkjosh.github.io/Code-Quiz/).
